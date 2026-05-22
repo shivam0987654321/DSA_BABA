@@ -16,3 +16,10 @@ Most number-based problems follow this pattern:
 
 ```python
 digit = num % 10
+```
+
+### Remove Last Digit
+```python
+num = num // 10
+
+```
