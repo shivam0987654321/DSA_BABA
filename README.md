@@ -1,8 +1,18 @@
-Day 1: Basics (1 - 4)
+# Day 1: Basics (1 - 4)
 
-Use % 10 to extract the last digit of a number.
-Use // 10 to remove the last digit and reduce the number by 10 each time.
-Based on the problem, decide what operation needs to be performed on the extracted digit.
-Always store the original = num before the loop because the number keeps changing during processing.
-Most number-based problems follow the pattern:
-Extract Digit → Process Digit → Reduce Number.
+## Core Idea
+
+Most number-based problems follow this pattern:
+
+1. Extract the last digit  
+2. Process the digit  
+3. Reduce the number  
+
+---
+
+## Important Operations
+
+### Extract Last Digit
+
+```python
+digit = num % 10
