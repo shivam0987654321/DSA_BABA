@@ -1,3 +1,4 @@
+# https://www.geeksforgeeks.org/problems/armstrong-numbers2727/1
 number = 1634 
 original = number 
 result = 0 

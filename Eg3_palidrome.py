@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/palindrome-number/description/
 n = 12132
 original = n
 result = 0 
