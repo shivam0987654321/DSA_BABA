@@ -146,3 +146,332 @@ From `Eg5` to `Eg8.2`, the main ideas I practiced were:
 - hashing with dictionaries
 - hashing with `Counter`
 - character frequency in strings
+
+
+
+
+From `Eg9` to `Eg9.1`:
+
+# Recursion Notes — Printing `"shivam"` 5 Times
+
+---
+
+# 1. Printing Before Recursive Call
+
+## Code
+
+```python
+# Print shivam 5 times
+
+count = 0 
+
+def function_count():
+    global count
+    
+    if count == 5:
+        return
+    
+    print("shivam")
+    
+    count += 1
+    
+    function_count()
+    
+function_count()
+```
+
+---
+
+# Output
+
+```python
+shivam
+shivam
+shivam
+shivam
+shivam
+```
+
+---
+
+# How It Works
+
+The `print()` happens BEFORE the recursive call.
+
+```python
+print("shivam")
+function_count()
+```
+
+So Python:
+
+1. Prints first
+2. Then goes deeper into recursion
+
+---
+
+# Step-by-Step Flow
+
+## First Call
+
+```python
+count = 0
+```
+
+Prints:
+
+```python
+shivam
+```
+
+Then:
+
+```python
+count = 1
+```
+
+Calls function again.
+
+---
+
+## Second Call
+
+```python
+count = 1
+```
+
+Again prints:
+
+```python
+shivam
+```
+
+Then recursive call happens.
+
+This continues until:
+
+```python
+count == 5
+```
+
+Then:
+
+```python
+return
+```
+
+stops recursion.
+
+---
+
+# Recursion Type
+
+This behaves similar to **tail recursion style** because:
+
+```python
+function_count()
+```
+
+is the last operation.
+
+No extra work happens after recursion.
+
+---
+
+# Visualization
+
+```text
+print
+ ↓
+recursive call
+ ↓
+print
+ ↓
+recursive call
+ ↓
+print
+```
+
+---
+
+# Key Learning
+
+If work happens BEFORE recursion:
+
+✅ Output comes in forward order.
+
+---
+
+---
+
+# 2. Printing After Recursive Call
+
+## Code
+
+```python
+count = 0 
+
+def function_count():
+    global count
+    
+    if count == 5:
+        return 
+    
+    count = count + 1
+    
+    function_count()
+    
+    print("shivam")
+
+function_count()
+```
+
+---
+
+# Output
+
+```python
+shivam
+shivam
+shivam
+shivam
+shivam
+```
+
+---
+
+# Internal Working Is Different
+
+Now:
+
+```python
+function_count()
+print("shivam")
+```
+
+The recursive call happens FIRST.
+
+Python keeps going deeper before printing anything.
+
+---
+
+# Stack Building
+
+Recursive calls are created like this:
+
+```text
+1st call
+2nd call
+3rd call
+4th call
+5th call
+```
+
+When:
+
+```python
+count == 5
+```
+
+the function returns.
+
+Now stack starts coming back.
+
+During return:
+
+```python
+print("shivam")
+```
+
+runs.
+
+---
+
+# Visualization
+
+```text
+go deeper
+ ↓
+go deeper
+ ↓
+go deeper
+ ↓
+return starts
+ ↑
+print
+ ↑
+print
+ ↑
+print
+```
+
+---
+
+# Recursion Type
+
+This is NOT tail recursion because:
+
+```python
+function_count()
+print("shivam")
+```
+
+There is still work left after recursion.
+
+This is called:
+
+- Non-tail recursion
+- Backtracking recursion
+
+---
+
+# Key Learning
+
+If work happens AFTER recursion:
+
+✅ Output comes during stack unwinding.
+
+---
+
+# Main Difference
+
+| Before Recursive Call | After Recursive Call |
+|---|---|
+| Prints immediately | Prints while returning |
+| Forward execution | Backtracking execution |
+| Tail-recursion-like | Non-tail recursion |
+
+---
+
+# Easy Memory Trick
+
+## Before recursion
+
+```python
+print()
+recursive_call()
+```
+
+➡️ Do work BEFORE going deeper.
+
+---
+
+## After recursion
+
+```python
+recursive_call()
+print()
+```
+
+➡️ Go deeper first, work while coming back.
+
+---
+
+# Core Recursion Concept
+
+Recursion has 2 phases:
+
+1. Going deeper into recursive calls
+2. Returning back (stack unwinding)
+
+Understanding these 2 phases is the key to mastering recursion.
